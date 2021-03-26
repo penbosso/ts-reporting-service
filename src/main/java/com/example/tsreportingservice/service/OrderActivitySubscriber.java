@@ -24,9 +24,10 @@ public class OrderActivitySubscriber implements MessageListener {
         count = count + 1;
         try {
             Order order = objectMapper.readValue(message.toString(), Order.class);
-            orderActivityRepository.save(new OrderActivity(
+            OrderActivity o = orderActivityRepository.save(new OrderActivity(
                     order.isValid() ? "valid" : "invalid", order.getSide(), order.getId()
             ));
+            System.out.println("Message -> " + o.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }

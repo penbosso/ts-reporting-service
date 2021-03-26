@@ -17,6 +17,7 @@ public class OrderActivity {
     private Date createdAt;
 
     public OrderActivity() {
+        this.createdAt = new Timestamp((new Date().getTime()));
     }
 
     public OrderActivity(String status, String action, long orderId) {
@@ -64,5 +65,16 @@ public class OrderActivity {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderActivity{" +
+                "id=" + id +
+                ", status='" + status + '\'' +
+                ", action='" + action + '\'' +
+                ", orderId=" + orderId +
+                ", createdAt=" + createdAt +
+                '}';
     }
 }

@@ -23,7 +23,7 @@ public class ClientActivity {
 	}
 	
 	public ClientActivity(){
-	
+		this.createdAt = new Timestamp((new Date().getTime()));
 	}
 	
 	public long getId() {
@@ -64,5 +64,16 @@ public class ClientActivity {
 	
 	public void getCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
+	}
+
+	@Override
+	public String toString() {
+		return "ClientActivity{" +
+				"id=" + id +
+				", clientId=" + clientId +
+				", fullName='" + fullName + '\'' +
+				", action='" + action + '\'' +
+				", createdAt=" + createdAt +
+				'}';
 	}
 }
