@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ExchangeActivityController {
-
     @Autowired
     private ExchageActivityRepository exchageActivityRepository;
 
@@ -21,6 +20,4 @@ public class ExchangeActivityController {
 
         return ResponseEntity.ok().build();
     }
-
-
 }
