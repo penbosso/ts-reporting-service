@@ -27,10 +27,11 @@ public class OrderActivitySubscriber implements MessageListener {
             OrderActivity o = orderActivityRepository.save(new OrderActivity(
                     order.isValid() ? "valid" : "invalid", order.getSide(), order.getId()
             ));
-            System.out.println("Message -> " + o.toString());
+//            System.out.println("Message -> " + o.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("Message -> " + count + " received: " + message);
+        System.out.println("%%%2***Order validation:: "+ message.toString());
+//        System.out.println("Message -> " + count + " received: " + message);
     }
 }

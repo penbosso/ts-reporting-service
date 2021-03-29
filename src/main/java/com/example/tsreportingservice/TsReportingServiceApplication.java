@@ -19,7 +19,7 @@ public class TsReportingServiceApplication {
 	public void startRedis() {
 		System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
 		System.out.println("^^QueueProcessingService subscription");
-		queueProcessingService.processQueue();
+//		queueProcessingService.processQueue();
 		System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
 	}
 }

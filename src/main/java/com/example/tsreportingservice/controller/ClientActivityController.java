@@ -15,6 +15,7 @@ public class ClientActivityController {
 	
 	@PostMapping("/client-report")
 	public ResponseEntity<Object> ReportClientActivity(@RequestBody ClientActivity clientActivity){
+		System.out.println("%%%1***Client connectivity:: "+ clientActivity.getClientId() +"("+ clientActivity.getFullName()+") "+clientActivity.getAction());
 		ClientActivity newClientActivity = new ClientActivity(clientActivity.getClientId(), clientActivity.getFullName(), clientActivity.getAction());
 		System.out.println(newClientActivity);
 		clientRepository.save(newClientActivity);
