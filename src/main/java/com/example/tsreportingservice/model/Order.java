@@ -1,6 +1,5 @@
 package com.example.tsreportingservice.model;
 
-
 public class Order {
     private long id;
     private String product;
