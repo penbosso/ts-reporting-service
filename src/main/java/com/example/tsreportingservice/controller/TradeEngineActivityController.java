@@ -25,11 +25,11 @@ public class TradeEngineActivityController {
         System.out.println("%%%3***Trade engine:: "+ requestNumber +" -> " + tradeEngineActivity.toString());
 
         //update order activity by order id
-        updateOrderActiviy(tradeEngineActivity.getOrderId(), tradeEngineActivity.getStatus());
+        updateOrderActivity(tradeEngineActivity.getOrderId(), tradeEngineActivity.getStatus());
         return ResponseEntity.ok().build();
     }
 
-    public void updateOrderActiviy(long orderId, String status) {
+    public void updateOrderActivity(long orderId, String status) {
         OrderActivity orderActivity = orderActivityRepository.findByOrderId(orderId);
         orderActivity.setStatus(status);
         orderActivityRepository.save(orderActivity);
