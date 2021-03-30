@@ -15,9 +15,10 @@ public class ExchangeActivityController {
 
     @PostMapping("/exchange-activity-report")
     public ResponseEntity<Object> ReportExchangeActivity(@RequestBody ExchangeActivity exchangeActivity){
-        ExchangeActivity exchangeActivity1 = new ExchangeActivity(exchangeActivity.getExchange(), exchangeActivity.getSide(), exchangeActivity.getQuantity(), exchangeActivity.getPrice(), exchangeActivity.getOrderKey());
-        exchageActivityRepository.save(exchangeActivity1);
+        exchageActivityRepository.save(exchangeActivity);
 
+
+        System.out.println("%%%4***Exchange connectivity:: "+ exchangeActivity.toString());
         return ResponseEntity.ok().build();
     }
 }

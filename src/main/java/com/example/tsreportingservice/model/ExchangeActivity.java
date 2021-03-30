@@ -8,24 +8,33 @@ import javax.persistence.Id;
 public class ExchangeActivity {
     @Id
     @GeneratedValue
-
     private long id;
     private String exchange;
     private String side;
     private int quantity;
     private double price;
     private String orderKey;
+    private String product;
 
-    public ExchangeActivity(String exchange, String side, int quantity, double price, String orderKey) {
+    public ExchangeActivity(String exchange, String side, int quantity, double price, String orderKey, String product) {
         this.exchange = exchange;
         this.side = side;
         this.quantity = quantity;
         this.price = price;
         this.orderKey = orderKey;
+        this.product = product;
     }
 
     public ExchangeActivity(){
 
+    }
+
+    public String getProduct() {
+        return product;
+    }
+
+    public void setProduct(String product) {
+        this.product = product;
     }
 
     public long getId() {
@@ -74,5 +83,18 @@ public class ExchangeActivity {
 
     public void setOrderKey(String orderKey) {
         this.orderKey = orderKey;
+    }
+
+    @Override
+    public String toString() {
+        return "ExchangeActivity{" +
+                "id=" + id +
+                ", exchange='" + exchange + '\'' +
+                ", side='" + side + '\'' +
+                ", quantity=" + quantity +
+                ", price=" + price +
+                ", orderKey='" + orderKey + '\'' +
+                ", product='" + product + '\'' +
+                '}';
     }
 }

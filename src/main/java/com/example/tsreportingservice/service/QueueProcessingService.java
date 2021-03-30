@@ -2,10 +2,7 @@ package com.example.tsreportingservice.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
-
-import java.util.List;
+import redis.clients.jedis.Jedis;
 
 @Service
 public class QueueProcessingService {
@@ -15,19 +12,22 @@ public class QueueProcessingService {
     private Integer PORT;
     @Value("${spring.redis.password}")
     private String PASSWORD;
+    static int requestNumber = 0;
 
     public void processQueue() {
-        JedisPool jedisPool = new JedisPool(new JedisPoolConfig(), HOST, PORT, 10000, PASSWORD);
+        Jedis jedis = new Jedis( HOST, PORT,0);
+            jedis.auth(PASSWORD);
+
         while(true) {
-            List<String> tradeQueue = jedisPool.getResource().blpop(0,"trade-activity");
-
+            String tradeQueue = jedis.lpop("trade-activity");
             if(tradeQueue == null) continue;
+            requestNumber++;;
 
-            System.out.println("Received -> " +tradeQueue);
+            System.out.println("Received -> "+requestNumber+" --" +tradeQueue);
 
             //exchange trade
 
-            reportTradeEngineActivity(tradeQueue.get(1));
+//            reportTradeEngineActivity(tradeQueue.get(1));
         }
     }
 
