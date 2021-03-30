@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ExchangeActivityController {
-
     @Autowired
     private ExchageActivityRepository exchageActivityRepository;
 
@@ -22,5 +21,4 @@ public class ExchangeActivityController {
         System.out.println("%%%4***Exchange connectivity:: "+ exchangeActivity.toString());
         return ResponseEntity.ok().build();
     }
-
 }
