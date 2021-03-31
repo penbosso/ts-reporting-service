@@ -11,17 +11,8 @@ public class TradeEngineService {
     @Autowired
     TradeEngineActivityRepository tradeEngineActivityRepository;
 
-    public TradeEngineService(TradeEngineActivityRepository tradeEngineActivityRepository) {
-        this.tradeEngineActivityRepository = tradeEngineActivityRepository;
-    }
-
     public TradeEngineActivity saveTradeEngineActivity(TradeEngineActivity tradeEngineActivity){
-        TradeEngineActivity tradeEngineActivityToSave = new TradeEngineActivity();
-        tradeEngineActivityToSave.setOrderId(tradeEngineActivity.getOrderId());
-        tradeEngineActivityToSave.setExchange(tradeEngineActivity.getExchange());
-        tradeEngineActivityToSave.setStatus(tradeEngineActivity.getStatus());
-        tradeEngineActivityToSave.setComment(tradeEngineActivity.getComment());
 
-        return tradeEngineActivityRepository.save(tradeEngineActivityToSave);
+        return tradeEngineActivityRepository.save(tradeEngineActivity);
     }
 }
