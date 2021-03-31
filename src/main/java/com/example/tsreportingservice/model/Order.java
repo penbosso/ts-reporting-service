@@ -1,6 +1,17 @@
 package com.example.tsreportingservice.model;
 
+import com.sun.istack.NotNull;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+import javax.persistence.Id;
+
+@Entity @Table
 public class Order {
+    @NotNull
+    @Id  @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String product;
     private String side;

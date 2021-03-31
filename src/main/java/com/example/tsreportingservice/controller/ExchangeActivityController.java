@@ -18,7 +18,7 @@ public class ExchangeActivityController {
         exchageActivityRepository.save(exchangeActivity);
 
 
-        System.out.println("%%%4***Exchange connectivity:: "+ exchangeActivity.toString());
+        System.out.println("%%%4***Exchange connectivity:: " + exchangeActivity.toString());
         return ResponseEntity.ok().build();
     }
 }

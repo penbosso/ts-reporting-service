@@ -1,9 +1,20 @@
 package com.example.tsreportingservice.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.sun.istack.NotNull;
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Data
+@Entity
 public class TradeEngineActivity {
+    @NotNull
+    @Id  @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String status;
     private String exchange;
